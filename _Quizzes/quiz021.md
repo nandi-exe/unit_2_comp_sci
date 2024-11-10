@@ -23,3 +23,7 @@ plt.show()
 ## Proof of Work
 
 <img width="1470" alt="image" src="https://github.com/user-attachments/assets/f6041348-679c-4ae3-931f-f7b07d346cb4">
+
+## Part B
+
+![IMG_1026](https://github.com/user-attachments/assets/f7992528-a765-4591-abca-ff2eb90dab68)
