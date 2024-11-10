@@ -29,3 +29,5 @@ for i in range(8):
 <img width="1470" alt="image" src="https://github.com/user-attachments/assets/9f095a75-4cae-43e8-af6f-1bc602d8f9d2">
 
 # Part B
+
+![IMG_1022](https://github.com/user-attachments/assets/dae79c8a-0f1d-45dd-82d9-e4bcf834bde4)
