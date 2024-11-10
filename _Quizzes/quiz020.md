@@ -32,3 +32,5 @@ plt.show()
 
 ## Part B
 
+![IMG_1025](https://github.com/user-attachments/assets/7dd63e0a-3a20-4cd1-a7d9-a209e2e16f7f)
+
