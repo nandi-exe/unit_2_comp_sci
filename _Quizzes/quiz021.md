@@ -2,6 +2,8 @@
 
 ## Paper Solution
 
+![IMG_1035](https://github.com/user-attachments/assets/afe33aba-7d59-44e8-99f5-278f8eab9376)
+
 ## Code
 ```
 from matplotlib import pyplot as plt
