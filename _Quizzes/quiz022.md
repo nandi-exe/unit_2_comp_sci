@@ -2,6 +2,8 @@
 
 ## Paper Solution
 
+![IMG_1037](https://github.com/user-attachments/assets/ec097501-2f11-4a5d-8212-14fee4273286)
+
 ## Code
 
 ```
@@ -35,7 +37,8 @@ plt.show()
 
 ## Proof of Work
 
-<img width="1470" alt="image" src="https://github.com/user-attachments/assets/13a33932-3ba8-4002-a525-7819a477c40c">
+<img width="1470" alt="image" src="https://github.com/user-attachments/assets/3887b7c7-b8cf-451c-80f2-70d584b2a8bd">
+
 
 ## Part B
 
