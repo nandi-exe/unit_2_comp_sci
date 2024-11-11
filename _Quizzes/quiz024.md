@@ -3,6 +3,7 @@
 [NB: was unable to complete part B due to the 24th quiz not being in the slides]
 ## Paper Solution
 
+![image](https://github.com/user-attachments/assets/636340f3-1f8e-4e44-8a13-ce95e4445eef)
 
 ## Code
 
