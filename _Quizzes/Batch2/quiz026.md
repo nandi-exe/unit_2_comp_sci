@@ -22,3 +22,8 @@ print(inverted_dict)
 ## Proof of Work
 
 <img width="1392" alt="image" src="https://github.com/user-attachments/assets/a0ded82a-5b1a-42f0-bad8-ccc5f6f61949">
+
+## Part B
+
+![IMG_16B2D3C11A9A-1](https://github.com/user-attachments/assets/94a5cd04-b87f-4fb5-a8cb-a7fca622c323)
+
