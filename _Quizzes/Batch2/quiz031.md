@@ -2,6 +2,8 @@
 
 ## Paper Solution
 
+![IMG_BCCE06AD9D8D-1](https://github.com/user-attachments/assets/fac25b51-6646-49ad-b808-9458d9047006)
+
 ## Code
 
 ```
