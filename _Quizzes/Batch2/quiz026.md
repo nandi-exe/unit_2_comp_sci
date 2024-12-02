@@ -1,4 +1,4 @@
-# Quiz 025
+# Quiz 026
 
 ## Paper Solution
 
