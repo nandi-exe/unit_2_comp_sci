@@ -1,4 +1,4 @@
-<img width="1392" alt="image" src="https://github.com/user-attachments/assets/ce1d0067-6fdb-4aa1-8ac4-78dabc516537"># Quiz 025
+# Quiz 025
 
 ## Paper Solution
 
