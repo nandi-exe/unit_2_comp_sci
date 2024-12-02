@@ -33,3 +33,7 @@ print(result)
 
 <img width="1435" alt="Screenshot 2024-12-03 at 8 32 41" src="https://github.com/user-attachments/assets/90884c48-1bf6-49f4-a73e-d38e3c99b56f">
 
+## Part B
+
+A 6 bit computer can show up to 64 colours.
+
