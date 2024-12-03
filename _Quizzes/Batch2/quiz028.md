@@ -2,69 +2,84 @@
 
 ## Paper Solution
 
+![IMG_229E4EE02B4C-1](https://github.com/user-attachments/assets/89880f06-bfa1-4733-bf3c-b0144c82ae25)
+![IMG_D2CEE6EBE4AF-1](https://github.com/user-attachments/assets/01e81890-58e9-4150-8598-968c86d45474)
+![IMG_BCA1AFB5B61B-1](https://github.com/user-attachments/assets/7600ba23-8d19-405b-8ae4-76199f678ed9)
+
 ## Code
 
 ```
-
 import numpy as np
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 import matplotlib
 import requests
+
+def moving_average(windowSize: int, x:list)-> list:
+    x_smoothed = []
+    for i in range(0,len(x)-windowSize):
+        x_section = x[i:i+windowSize]
+        x_average = sum(x_section)/windowSize
+
+    return x_smoothed
 
 plt.style.use("ggplot")
 matplotlib.use("MacOSX")
 
-# Server and user details
-server_ip = "192.168.4.137"
-user = {'username':'UNANDI','password':'nananandi08'}
-# register (only one)
-#answer = requests.post(f'http://{server_ip}/register',json=user)
+server_ip= '192.168.4.137'
 
-
-login_response = requests.post(f'http://{server_ip}/login', json=user)
-cookie = login_response.json().get('access_token')
-if not cookie:
-    raise ValueError("Failed to retrieve access token. Check login credentials.")
-
-#fetch data from sensor
-headers = {'Authorization': f'Bearer {cookie}'}
-request = requests.get(f'http://{server_ip}/readings', headers=headers)
+request = requests.get(f"http://{server_ip}/readings")
 data = request.json()
 
-print("Data Response:", data)
-
-#store values
 readings = data['readings'][0]
-temp = [r["value"] for r in readings if r["sensor_id"] == 11]
 
-#smooth values
-window_size = 10
-smoothed_values = np.convolve(temp, np.ones(window_size)/window_size, mode='valid')
+temp = []
+for r in readings:
+    if r['sensor_id'] == 11:
+        temp.append(r["value"])
 
-#range
-filtered_indices = np.where((smoothed_values > 0) & (smoothed_values < 40))[0]
-filtered_values = smoothed_values[filtered_indices]
+temp_segment = temp[600:1600]
+temp_smoothed = moving_average(windowSize = 50, x=temp_segment)
 
-#quadratic model
-x = np.arange(len(filtered_values))
-coefficients = np.polyfit(x, filtered_values, 2)
-quadratic_model = np.poly1d(coefficients)
+x = [*range(0,len(temp_smoothed))] # converting into LIST
+#1 liner
+m, b = np.polyfit(x, temp_smoothed, deg= 1)
+plt.subplot(2,1,1)
+plt.title("Temperature")
+plt.plot([0,x[-1]], [m*0+b,m*x[-1]+b], color = 'blue')
 
-#plot
-plt.figure(figsize=(10, 6))
-plt.plot(temp, label="Raw Values", alpha=0.5)
-plt.plot(np.arange(len(smoothed_values)), smoothed_values, label="Smoothed Values", linewidth=2)
-plt.scatter(filtered_indices, filtered_values, color='red', label="Filtered Values")
-plt.plot(np.arange(len(filtered_values)), quadratic_model(np.arange(len(filtered_values))),
-        label="Quadratic Fit", color='green', linewidth=2)
+a,b,c = np.polyfit(x,temp_smoothed,deg = 2)
 
-plt.title("Sensor Data Analysis (Sensor ID = 11)")
-plt.xlabel("Time (arbitrary units)")
-plt.ylabel("Sensor Value")
-plt.legend()
-plt.grid()
+y_quad = []
+for i in x:
+    y_quad += [a*i**2 + b*i +c]
+plt.plot(y_quad, color = 'purple')
+
+a,b,c,d = np.polyfit(x,temp_smoothed,deg=3)
+
+y_cubic = []
+for i in x:
+    y_cubic += [a*i**3 + b*i**2 + c*i + d]
+plt.plot(y_cubic, color = 'orange')
+
+
+pressure = []
+for r in readings:
+    if r['sensor_id'] == 12:
+        pressure.append(r["value"])
+
+pressure_segment = pressure[600:1600]
+pressure_smoothed = moving_average(windowSize = 50, x=pressure_segment)
+x = [*range(0,len(pressure_smoothed))] # converting into LIST
+
+plt.subplot(2,1,2)
+plt.plot(pressure_smoothed)
+plt.title("Pressure")
+
+
+plt.subplot(2,1,1)
+plt.plot(temp_segment, alpha = 0.5) # until 1599   # alpha is Transparency
+plt.plot(temp_smoothed, color='black')
 plt.show()
-
 ```
 ## Proof of Work
 
